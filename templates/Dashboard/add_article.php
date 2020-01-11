@@ -14,7 +14,7 @@
                 echo $this->Form->control('user_id', ['type' => 'hidden', 'value' => $this->Identity->get('id')]);
                 echo $this->Form->control('picture', ['type' => 'file', 'style'=>'display:none;','onchange'=>'readURL(this,\'/img/placeholder.png\');']);
                 echo $this->Form->control('title',['placeholder'=>'Title','type'=>'text']);
-                echo $this->Form->control('body', ['rows' => '3']);
+                echo $this->Form->control('body', ['rows' => '3','class'=>'texteditor-load']);
                 echo $this->Form->control('category', ['name'=>'category_id','type' => 'select','options'=>$categories]);
                 echo"<p> Do you  want to publish article immediately?</p>";
                 echo $this->Form->control('published', ['type' => 'checkbox','value'=>1]);

@@ -63,7 +63,7 @@ $cakeDescription = 'CakePHP: project';
 
 <link rel="stylesheet" href="/css/linearicons.css">
 <link rel="stylesheet" href="/css/font-awesome.min.css">
-<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+<link rel="stylesheet" href="/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
 
 <link rel="stylesheet" href="/css/bootstrap.css">
 
@@ -129,6 +129,15 @@ $cakeDescription = 'CakePHP: project';
 
     <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" type="cef186f2bb98cf3c1699c485-text/javascript"></script>
     <script src="/js/main.js" type="cef186f2bb98cf3c1699c485-text/javascript"></script>
+    <script src="/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js" type="cef186f2bb98cf3c1699c485-text/javascript"></script>
+    <script type="cef186f2bb98cf3c1699c485-text/javascript">
+        $(".texteditor-load").wysihtml5();
+    </script>
+    <style>
+        .texteditor-load{
+            height:400px;
+        }
+    </style>
     <script src="/js/readurl.js" type="cef186f2bb98cf3c1699c485-text/javascript"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13" type="cef186f2bb98cf3c1699c485-text/javascript"></script>
     <script src="https://ajax.cloudflare.com/cdn-cgi/scripts/7089c43e/cloudflare-static/rocket-loader.min.js" data-cf-settings="cef186f2bb98cf3c1699c485-|49" defer=""></script>
