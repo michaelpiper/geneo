@@ -14,7 +14,7 @@
 <div class="user-details row">
 <p class="user-name col-lg-12 col-md-12 col-6"><a href="#"><?=$author->username?></a> <span class="lnr lnr-user"></span></p>
 <p class="date col-lg-12 col-md-12 col-6"><a href="#"><?= $article->created->format(DATE_RFC850) ?></a> <span class="lnr lnr-calendar-full"></span></p>
-<p class="view col-lg-12 col-md-12 col-6"><a href="#"><?=mt_rand(1,888) ?> Views</a> <span class="lnr lnr-eye"></span></p>
+<p class="view col-lg-12 col-md-12 col-6"><a href="#"><?= $article->viewed ?> Views</a> <span class="lnr lnr-eye"></span></p>
 <p class="comments col-lg-12 col-md-12 col-6"><a href="#"><?=mt_rand(2,88) ?> Comments</a> <span class="lnr lnr-bubble"></span></p>
 </div>
 </div>

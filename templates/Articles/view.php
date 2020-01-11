@@ -1,5 +1,5 @@
 <!-- File: templates/Articles/view.php -->
-
+<?php $author=$Users->find()->where(['id'=>$article->user_id])->first();?>
 <section class="relative about-banner">
 <div class="overlay overlay-bg"></div>
 <div class="container">
@@ -22,7 +22,7 @@
 <div class="single-post row">
 <div class="col-lg-12">
 <div class="feature-img">
-<img class="img-fluid" src="/img/blog/feature-img1.jpg" alt="">
+<img class="img-fluid" src="<?=($article->cover_image)?$article->cover_image:'/image/cover_image.png'?>" alt="">
 </div>
 </div>
 <div class="col-lg-3  col-md-3 meta-details">
@@ -33,9 +33,9 @@
 <li><a href="#">Lifestyle</a></li>
 </ul>
 <div class="user-details row">
-<p class="user-name col-lg-12 col-md-12 col-6"><a href="#">Mark wiens</a> <span class="lnr lnr-user"></span></p>
-<p class="date col-lg-12 col-md-12 col-6"><a href="#">12 Dec, 2017</a> <span class="lnr lnr-calendar-full"></span></p>
-<p class="view col-lg-12 col-md-12 col-6"><a href="#">1.2M Views</a> <span class="lnr lnr-eye"></span></p>
+<p class="user-name col-lg-12 col-md-12 col-6"><a href="#"><?=$author->username?></a> <span class="lnr lnr-user"></span></p>
+<p class="date col-lg-12 col-md-12 col-6"><a href="#"><?= $article->created->format(DATE_RFC850) ?></a> <span class="lnr lnr-calendar-full"></span></p>
+<p class="view col-lg-12 col-md-12 col-6"><a href="#"><?=$article->viewed ?> Views</a> <span class="lnr lnr-eye"></span></p>
 <p class="comments col-lg-12 col-md-12 col-6"><a href="#">06 Comments</a> <span class="lnr lnr-bubble"></span></p>
 <ul class="social-links col-lg-12 col-md-12 col-6">
 <li><a href="#"><i class="fa fa-facebook"></i></a></li>
