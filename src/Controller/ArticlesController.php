@@ -74,7 +74,7 @@ class ArticlesController extends AppController
         $this->set(compact('comments'));
         $this->set(compact('comment'));
         $this->set('Users',$this->Users);
-        $this->Articles->patchEntity($article, ['viewed'=>$article->viewed+1]);
+        $this->Articles->patchEntity($article, ['viewed'=> intval($article->viewed)+1]);
         // $article->
         $this->set(compact('category'));
         $this->set(compact('p_categories'));

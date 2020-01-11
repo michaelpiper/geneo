@@ -84,4 +84,3 @@ You can unsubscribe at any time
 </div>
 </div>
 </section>
-<?php require_once __DIR__.'/../components/footer.inc.php'?>
