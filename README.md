@@ -1,4 +1,11 @@
 vGCjz;BuUcBh
+
+use file in webroot/structure.sql to migrate database
+use file in webroot/data.sql to migrate database data
+
+default user 
+email : cakephp@example.com
+password : secret
 # CakePHP Application Skeleton
 
 [![Build Status](https://img.shields.io/travis/cakephp/app/master.svg?style=flat-square)](https://travis-ci.org/cakephp/app)
