@@ -106,7 +106,7 @@ $cakeDescription = 'CakePHP: project';
         <?= $this->Flash->render() ?>
         <?= $this->fetch('content') ?>
     </main>
-    <?php if(isset($_SERVER['REQUEST_URI']) && $_SERVER['REQUEST_URI']!='/dashboard/login'):?>
+    <?php if(isset($_SERVER['REQUEST_URI']) && !preg_match('/dashboard\/login/i',$_SERVER['REQUEST_URI'])):?>
     <?php require_once __DIR__.'/../components/footer.inc.php'?>
     <?php endif;?>
     <script src="/js/vendor/jquery-2.2.4.min.js" type="cef186f2bb98cf3c1699c485-text/javascript"></script>
