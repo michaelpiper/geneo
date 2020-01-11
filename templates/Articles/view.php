@@ -48,7 +48,6 @@
 <div class="col-lg-9 col-md-9">
 <h3 class="mt-20 mb-20"><?=$article->title?></h3>
 <?=$article->body?>
- <?= print_r($article)?>
 </div>
 </div>
 <!-- include next article-->
@@ -56,8 +55,6 @@
 
 <!-- include comment area -->
 <?php require __DIR__."/comment_area.inc.php";?>
-
-
 
 <div class="col-lg-4 sidebar-widgets">
 <div class="widget-wrap">

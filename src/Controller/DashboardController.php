@@ -52,8 +52,8 @@ class DashboardController extends AppController
                 $this->Flash->error(__('Username already taken'));
             }else{
                 $uploads_dir = 'uploads/users/';
-                if(!file_exists('webroot/'.$uploads_dir)){
-                    mkdir('webroot/'.$uploads_dir,0777,true);
+                if(!file_exists($uploads_dir)){
+                    mkdir($uploads_dir,0777,true);
                 }
                 if(isset($_FILES["picture"])){ 
                     $ext_type = array('gif','jpg','jpe','jpeg','png');
@@ -69,7 +69,7 @@ class DashboardController extends AppController
                         if(!$ext || !in_array(strtolower($ext),$ext_type)){
                             $this->Flash->error(__('Image file format not allowed'));
                         }
-                        elseif(!move_uploaded_file($tmp_name,'webroot/'.$filename)){
+                        elseif(!move_uploaded_file($tmp_name,$filename)){
                             $this->Flash->error(__('Display image could not be uploaded'));
                         }else{
                             $oldfile=$user->cover_image;
@@ -168,8 +168,8 @@ class DashboardController extends AppController
                 $this->Flash->error(__('Article with this title already exist'));
             }else{ 
                 $uploads_dir = 'uploads/articles/';
-                if(!file_exists('webroot/'.$uploads_dir)){
-                    mkdir('webroot/'.$uploads_dir,null,true);
+                if(!file_exists($uploads_dir)){
+                    mkdir($uploads_dir,null,true);
                 }
                 if(isset($_FILES["picture"])){ 
                     $ext_type = array('gif','jpg','jpe','jpeg','png');
@@ -185,7 +185,7 @@ class DashboardController extends AppController
                         if(!$ext || !in_array(strtolower($ext),$ext_type)){
                             $this->Flash->error(__('Image file format not allowed'));
                         }
-                        elseif(!move_uploaded_file($tmp_name,'webroot/'.$filename)){
+                        elseif(!move_uploaded_file($tmp_name,$filename)){
                             $this->Flash->error(__('Article image could not be uploaded'));
                         }else{
                             $article->cover_image ='/'.$filename;
@@ -242,8 +242,8 @@ class DashboardController extends AppController
                 $this->Flash->error(__('Article with this title already exist'));
             }else{
                 $uploads_dir = 'uploads/articles/';
-                if(!file_exists('webroot/'.$uploads_dir)){
-                    mkdir('webroot/'.$uploads_dir,0777,true);
+                if(!file_exists($uploads_dir)){
+                    mkdir($uploads_dir,0777,true);
                 }
                 if(isset($_FILES["picture"])){ 
                     $ext_type = array('gif','jpg','jpe','jpeg','png');
@@ -259,7 +259,7 @@ class DashboardController extends AppController
                         if(!$ext || !in_array(strtolower($ext),$ext_type)){
                             $this->Flash->error(__('Image file format not allowed'));
                         }
-                        elseif(!move_uploaded_file($tmp_name,'webroot/'.$filename)){
+                        elseif(!move_uploaded_file($tmp_name,$filename)){
                             $this->Flash->error(__('Article image could not be uploaded'));
                         }else{
                             $oldfile=$article->cover_image;
@@ -345,8 +345,8 @@ class DashboardController extends AppController
                 $this->Flash->error(__('Tag with this title already exist'));
             }else{
                 $uploads_dir = 'uploads/tags/';
-                if(!file_exists('webroot/'.$uploads_dir)){
-                    mkdir('webroot/'.$uploads_dir,0777,true);
+                if(!file_exists($uploads_dir)){
+                    mkdir($uploads_dir,0777,true);
                 }
                 if(isset($_FILES["picture"])){ 
                     $ext_type = array('gif','jpg','jpe','jpeg','png');
@@ -362,7 +362,7 @@ class DashboardController extends AppController
                         if(!$ext || !in_array(strtolower($ext),$ext_type)){
                             $this->Flash->error(__('Image file format not allowed'));
                         }
-                        elseif(!move_uploaded_file($tmp_name,'webroot/'.$filename)){
+                        elseif(!move_uploaded_file($tmp_name,$filename)){
                             $this->Flash->error(__('Tag image could not be uploaded'));
                         }else{
                             $oldfile=$tag->cover_image;
@@ -405,8 +405,8 @@ class DashboardController extends AppController
                 $this->Flash->error(__('Tag with this title already exist'));
             }else{
                 $uploads_dir = 'uploads/tags/';
-                if(!file_exists('webroot/'.$uploads_dir)){
-                    mkdir('webroot/'.$uploads_dir,0777,true);
+                if(!file_exists($uploads_dir)){
+                    mkdir($uploads_dir,0777,true);
                 }
                 if(isset($_FILES["picture"])){ 
                     $ext_type = array('gif','jpg','jpe','jpeg','png');
@@ -422,7 +422,7 @@ class DashboardController extends AppController
                         if(!$ext || !in_array(strtolower($ext),$ext_type)){
                             $this->Flash->error(__('Image file format not allowed'));
                         }
-                        elseif(!move_uploaded_file($tmp_name,'webroot/'.$filename)){
+                        elseif(!move_uploaded_file($tmp_name,$filename)){
                             $this->Flash->error(__('Tag image could not be uploaded'));
                         }else{
                             $oldfile=$tag->cover_image;
@@ -485,8 +485,8 @@ class DashboardController extends AppController
                 $this->Flash->error(__('Category with this title already exist'));
             }else{
                 $uploads_dir = 'uploads/categories/';
-                if(!file_exists('webroot/'.$uploads_dir)){
-                    mkdir('webroot/'.$uploads_dir,0777,true);
+                if(!file_exists($uploads_dir)){
+                    mkdir($uploads_dir,0777,true);
                 }
                 if(isset($_FILES["picture"])){ 
                     $ext_type = array('gif','jpg','jpe','jpeg','png');
@@ -502,7 +502,7 @@ class DashboardController extends AppController
                         if(!$ext || !in_array(strtolower($ext),$ext_type)){
                             $this->Flash->error(__('Image file format not allowed'));
                         }
-                        elseif(!move_uploaded_file($tmp_name,'webroot/'.$filename)){
+                        elseif(!move_uploaded_file($tmp_name,$filename)){
                             $this->Flash->error(__('Category image could not be uploaded'));
                         }else{
                             $oldfile=$category->cover_image;
@@ -545,8 +545,8 @@ class DashboardController extends AppController
                 $this->Flash->error(__('Category with this title already exist'));
             }else{
                 $uploads_dir = 'uploads/categories/';
-                if(!file_exists('webroot/'.$uploads_dir)){
-                    mkdir('webroot/'.$uploads_dir,0777,true);
+                if(!file_exists($uploads_dir)){
+                    mkdir($uploads_dir,0777,true);
                 }
                 if(isset($_FILES["picture"])){ 
                     $ext_type = array('gif','jpg','jpe','jpeg','png');
@@ -562,7 +562,7 @@ class DashboardController extends AppController
                         if(!$ext || !in_array(strtolower($ext),$ext_type)){
                             $this->Flash->error(__('Image file format not allowed'));
                         }
-                        elseif(!move_uploaded_file($tmp_name,'webroot/'.$filename)){
+                        elseif(!move_uploaded_file($tmp_name,$filename)){
                             $this->Flash->error(__('Category image could not be uploaded'));
                         }else{
                             $oldfile=$category->cover_image;

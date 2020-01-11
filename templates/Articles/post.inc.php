@@ -20,7 +20,7 @@
 </div>
 <div class="col-lg-9 col-md-9 ">
 <div class="feature-img">
-<img class="img-fluid" src="img/blog/feature-img1.jpg" alt="">
+<img class="img-fluid" src="<?=($article->cover_image)?$article->cover_image:'/image/cover_image.png'?>" alt="">
 </div>
 <h3> <?= $this->Html->link($article->title, ['action' => 'view', $article->slug],['class'=>'posts-title','style'=>"color:#000;"]) ?></h3>
 <p class="excert"> <?= substr($article->body,0,300)?>...</p>
