@@ -5,6 +5,7 @@
             <br/>
             <h1>Profile</h1>
             <div class="mx-5">
+            <?= $this->Flash->render() ?>
             <img class="img-fluid img-preview rounded-circle"  style="max-height:300px;height:300px;width:300px;" src="<?= ($this->Identity->get('display_image')) ? $this->Identity->get('display_image'):'/img/placeholder.png' ?>" alt="">
 
                 <table>
