@@ -696,10 +696,51 @@ class DashboardController extends AppController
         $old_owner = $this->Users->find()->where(['owner'=>1])->firstOrFail();
         $this->Users->patchEntity($new_owner, ['owner'=>1,'admin'=>1]);
         $this->Users->patchEntity($old_owner, ['owner'=> 0]);
-        if ($this->Users->save($new_owner)) {
-            $this->Users->save($old_owner);
-            $this->Flash->success(__($new_owner->username.' is now known as owner.', $new_owner->description));
-            return $this->redirect(['action' => 'logout']);
+        if(!$this->Identity->get('owner')){
+            $this->Flash->error(__('Access denied'));
+            return $this->redirect(['action' => 'users']);
+        }else{
+            if ($this->Users->save($new_owner)) {
+                $this->Users->save($old_owner);
+                $this->Flash->success(__($new_owner->username.' is now known as owner.', $new_owner->description));
+                return $this->redirect(['action' => 'logout']);
+            }
+        }
+    }
+    public function disableUser($id){
+        $this->request->allowMethod(['post', 'put', 'get']);
+        $user = $this->Users->find()->where(['id'=>$id])->firstOrFail();
+        if(!$this->Identity->get('admin')){
+            $this->Flash->error(__('Access denied'));
+            return $this->redirect(['action' => 'users']);
+        }elseif($user->owner){
+            $this->Flash->error(__('Access denied'));
+            return $this->redirect(['action' => 'users']);
+        }
+        else{
+            $this->Users->patchEntity($user, ['active'=>0]);
+            if ($this->Users->save($user)) {
+                $this->Flash->success(__($user->username.' is now known as owner.', $user->description));
+                return $this->redirect(['action' => 'users']);
+            }
+        }
+    }
+    public function enableUser($id){
+        $this->request->allowMethod(['post', 'put', 'get']);
+        $user = $this->Users->find()->where(['id'=>$id])->firstOrFail();
+        if(!$this->Identity->get('admin')){
+            $this->Flash->error(__('Access denied'));
+            return $this->redirect(['action' => 'users']);
+        }elseif($user->owner){
+            $this->Flash->error(__('Access denied'));
+            return $this->redirect(['action' => 'users']);
+        }
+        else{
+            $this->Users->patchEntity($user, ['active'=>1]);
+            if ($this->Users->save($user)) {
+                $this->Flash->success(__($user->username.' is now known as owner.', $user->description));
+                return $this->redirect(['action' => 'users']);
+            }
         }
     }
     public function logout()
@@ -713,8 +754,16 @@ class DashboardController extends AppController
         $user = $this->Users->newEmptyEntity();
         // If the user is logged in send them away.
         if ($result->isValid()) {
-            $target = $this->Authentication->getLoginRedirect() ?? '/dashboard';
-            return $this->redirect($target);
+            if(!$this->Identity->get('active'))
+            { 
+                $this->Flash->error('Your account has been disables');
+                $this->Authentication->logout();
+            }
+            else{
+                $target = $this->Authentication->getLoginRedirect() ?? '/dashboard';
+                return $this->redirect($target);
+            }
+           
         }
         if ($this->request->is('post') && !$result->isValid()) {
             $this->Flash->error('Invalid username or password');
