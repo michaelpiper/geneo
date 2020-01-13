@@ -15,7 +15,7 @@ return [
      * Development Mode:
      * true: Errors and warnings shown.
      */
-    'debug' => filter_var(env('DEBUG',false), FILTER_VALIDATE_BOOLEAN),
+    'debug' => filter_var(env('DEBUG', true), FILTER_VALIDATE_BOOLEAN),
 
     /*
      * Security and encryption configuration
@@ -25,7 +25,7 @@ return [
      *   You should treat it as extremely sensitive data.
      */
     'Security' => [
-        'salt' => env('SECURITY_SALT', 'fecf482aadf2452061e68ae46842cd01daac88a065536d6b2b30c89d274f789e'),
+        'salt' => env('SECURITY_SALT', '2a5bba071cbd4c963078893a66531b8c5c4435c30763670aa7d54733f78384a7'),
     ],
 
     /*
@@ -47,7 +47,7 @@ return [
             'username' => 'local',
             'password' => 'root',
 
-            'database' => 'cake_cms' ,   // 'cake_cms',
+            'database' => 'cake_cms',
             /**
              * If not using the default 'public' schema with the PostgreSQL driver
              * set it here.
@@ -66,9 +66,9 @@ return [
         'test' => [
             'host' => 'localhost',
             //'port' => 'non_standard_port_number',
-            'username' => 'local',
-            'password' => 'root',
-            'database' => 'cake_cms',
+            'username' => 'my_app',
+            'password' => 'secret',
+            'database' => 'test_myapp',
             //'schema' => 'myapp',
         ],
     ],

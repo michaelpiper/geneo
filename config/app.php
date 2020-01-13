@@ -17,7 +17,7 @@ return [
      * Development Mode:
      * true: Errors and warnings shown.
      */
-    'debug' => filter_var(env('DEBUG', false), FILTER_VALIDATE_BOOLEAN),
+    'debug' => filter_var(env('DEBUG', true), FILTER_VALIDATE_BOOLEAN),
 
     /*
      * Configure basic information about the application.
@@ -76,7 +76,7 @@ return [
      *   You should treat it as extremely sensitive data.
      */
     'Security' => [
-        'salt' => env('SECURITY_SALT'),
+        'salt' => env('SECURITY_SALT', 'tnx4rokt2sfkeq5gy3tzsn5h0kvi5ypj3k7vxpvvkaimpuciug4dhi56o4ijr9gm'),
     ],
 
     /*
@@ -273,6 +273,10 @@ return [
             'className' => Connection::class,
             'driver' => Mysql::class,
             'persistent' => false,
+	    'host' => 'localhost',
+            'username' => 'local',
+            'password' => 'root',
+            'database' => 'cake_cms',
             'timezone' => 'UTC',
 
             /**
